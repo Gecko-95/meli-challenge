@@ -1,0 +1,81 @@
+name: moba-api-integrator
+
+server:
+  port: 8080
+  servlet.context-path: /
+
+management:
+  health.defaults.enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: info,metrics,health
+
+spring.jackson.property-naming-strategy: SNAKE_CASE
+
+springfox:
+  documentation:
+    swagger:
+      use-model-v3: false
+
+management.info.git.mode: full
+
+swagger:
+  api:
+    version: 0.1.1
+
+
+# Fixer
+fixer:
+  baseUrl: http://data.fixer.io
+  key: a2d318e1a7cfced8f86b11c4b772ce30
+
+
+# Ip Info
+ipInfo:
+  baseUrl: https://api.ip2country.info/
+
+# Country Info
+countryInfo:
+  baseUrl: https://restcountries.com
+
+
+redis:
+  ###***VALUE TO RUN ON LOCAL MODE***
+  #host: localhost
+  ###***VALUE TO RUN ON DOCKER MODE***
+  host: redis
+  port: 6379
+  expiration: 300
+
+
+#Logging
+logging.description: true
+
+
+spring:
+  jpa:
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        temp.use_jdbc_metadata_defaults: false
+  datasource:
+    ###***VALUE TO RUN WITH WINDOWS LOCAL***
+    #url: jdbc:mysql://localhost:3306/challenge_db
+    ###***VALUE TO RUN WITH LINUX LOCAL***
+    #url: jdbc:mysql://localhost:3306/challenge_db?verifyServerCertificate=false&useSSL=false&requireSSL=false
+    #password:
+    ###***VALUE TO RUN WITH DOCKER***
+    #url: jdbc:mysql://mysql:3306/challenge-db?verifyServerCertificate=false&useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true
+    ###***VALUE TO RUN WITH DOCKER-COMPOSE***
+    url: jdbc:mysql://db:3306/challenge_db
+    username: root
+    password: 123456G*
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    testWhileIdle: true
+    validationQuery: SELECT 1

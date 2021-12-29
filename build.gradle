@@ -1,0 +1,59 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.8'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'meli.challenge'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+jar {
+	enabled= false
+}
+
+bootJar {
+	enabled= true
+}
+
+springBoot{
+	buildInfo()
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	implementation group: 'one.util', name: 'streamex', version: '0.8.1'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'io.mikael', name: 'urlbuilder', version: '2.0.9'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation group: 'redis.clients', name: 'jedis', version: '3.8.0'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	// Test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.8.2'
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.2.0'
+	testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '4.2.0'
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.8.2'
+	//testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.2'
+	testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.8.2'
+}
+
+
+test {
+	useJUnitPlatform()
+}
+
