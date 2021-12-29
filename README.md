@@ -1,13 +1,13 @@
 #Challenge Meli
-Para coordinar acciones de respuesta ante fraudes, es útil tener disponible información
+_Para coordinar acciones de respuesta ante fraudes, es útil tener disponible información
 contextual del lugar de origen detectado en el momento de comprar, buscar y pagar. Para
 ello se decide crear una herramienta que dada una IP obtenga información asociada.
-El ejercicio consiste en construir una API Rest que permita:
+El ejercicio consiste en construir una API Rest que permita:_
 1. Dada una dirección IP, encontrar el país al que pertenece y mostrar:
    a. El nombre y código ISO del país
    b. Moneda local y su cotización actual en dólares o euros.
 2. Ban/Blacklist de una IP: marcar la ip en una lista negra no permitiéndole consultar el
-   la información del punto 1.
+   la información del punto 1._
 
 ### Pre-requisitos 📋
 
